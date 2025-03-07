@@ -41,7 +41,7 @@ jobs:
         sudo apt-get install libgtest-dev libassimp-dev git libtbb-dev pkg-config libpython3-dev lcov
         python -m pip install -U trimesh pytest
     - uses: actions/checkout@v4
-    - uses: jwlawson/actions-setup-cmake@master
+    - uses: jwlawson/actions-setup-cmake@v2.0.2
     - name: Build ${{matrix.parallelization}}
       if: matrix.parallelization != 'OFF'
       run: |
@@ -113,7 +113,7 @@ jobs:
         cd emsdk
         ./emsdk install 3.1.64
         ./emsdk activate 3.1.64
-    - uses: jwlawson/actions-setup-cmake@master
+    - uses: jwlawson/actions-setup-cmake@v2.0.2
     - name: Build WASM ${{matrix.parallelization}}
       run: |
         source ./emsdk/emsdk_env.sh
@@ -152,7 +152,7 @@ jobs:
     runs-on: windows-2025
     steps:
     - uses: actions/checkout@v4
-    - uses: jwlawson/actions-setup-cmake@master
+    - uses: jwlawson/actions-setup-cmake@v2.0.2
     - uses: ilammy/msvc-dev-cmd@v1
     - name: Build ${{matrix.parallelization}}
       shell: powershell
@@ -219,7 +219,7 @@ jobs:
       if: matrix.parallelization == 'ON'
       run: brew install tbb
     - uses: actions/checkout@v4
-    - uses: jwlawson/actions-setup-cmake@master
+    - uses: jwlawson/actions-setup-cmake@v2.0.2
     - name: Build
       run: |
         mkdir build
@@ -247,7 +247,7 @@ jobs:
         brew install googletest
         pip install trimesh pytest
     - uses: actions/checkout@v4
-    - uses: jwlawson/actions-setup-cmake@master
+    - uses: jwlawson/actions-setup-cmake@v2.0.2
     - name: Build
       run: |
         mkdir build
@@ -275,7 +275,7 @@ jobs:
         brew install googletest
         pip install trimesh pytest
     - uses: actions/checkout@v4
-    - uses: jwlawson/actions-setup-cmake@master
+    - uses: jwlawson/actions-setup-cmake@v2.0.2
     - name: test cmake consumer
       run: |
         cd ..
